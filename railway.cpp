@@ -12,31 +12,35 @@
 
 void main()
 	{
+		
+		start:
+		
+
+		int cho,ret;
 		clrscr();
-		int ch;
+		cout<<"\n-------------------------------INDIAN_RAILWAYS----------------------------------";
+		cout<<"________________________________________________________________________________";
+		cout<<"_________________________________(Main_Menu)____________________________________";
+		
 
-		cout<<"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-		cout<<".......WELCOME TO RAILWAY RESERVATION SYSTEM..........\n";
-		cout<<"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-
-		do
-		{
-			cout<<"^^^^^^^^^^^^^^^^^^^^^^MAIN MENU^^^^^^^^^^^^^^^^^^^^\n";
-			cout<<"1.Admin login\n2.User login\n3.Exit\n";
-			cout<<"Enter your choice:";
-			cin>>ch;
-			cout<<endl;
+			cout<<"\n\n1.Admin mode\t2.User mode\t3.Exit\n";
+			cout<<"\nDefault password for Admin is '1234'";
+			cout<<"\n___________________________________________";
+			cout<<"\n\nEnter your choice in numeric form :  ";
+			cin>>cho;
+			
 
 
-			switch(ch)
+			switch(cho)
 				{
-					case 1:			database(); break;
-					case 2:			user(); break;
+					case 1:			//ret = database(); if(ret==0){goto start;} break;
+					case 2:			//ret = user(); if(ret==0){goto start;} break;
 					case 3:			exit(0);
+					default:		cout<<"\n wrong choice"; getch(); goto start;
 
 				}
 
-		}while(ch<=3);
+		
 
 
 		getch();
