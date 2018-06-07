@@ -45,3 +45,38 @@ void main()
 
 		getch();
 	}
+
+
+	int database(){
+		char password[20]="1234";
+		char pass[20];
+		tinfo a;
+		ifstream fin;
+		ofstream fout;
+		int ch; char choice;
+		clrscr();
+		cout<<"\n-------------------------------INDIAN_RAILWAYS----------------------------------";
+		cout<<"________________________________(ADMIN LOGIN)___________________________________";
+		
+	A:
+		cout<<"\n\n\nEnter the administrator password to login:\t";
+		gets(pass);
+		if(strcmp(pass,password)!=0){
+			cout<<"\n!!!	!!! 	!!! 	!!! 	!!!";
+			cout<<"\n____________________________________";
+			cout<<"\nYou have entered a wrong password !!!";
+			B:
+			cout<<"\n____________________________________";
+			cout<<"\n\n Enter your choice : \n";
+			cout<<"1: Try again\t2: Go to home page";
+			cin>>ch;
+			switch(ch)
+			{
+				case 1: goto A; 
+				case 2: return 0;
+				default: cout<<"\n wrong choice"; goto B;
+			}
+		}
+
+		
+	}
