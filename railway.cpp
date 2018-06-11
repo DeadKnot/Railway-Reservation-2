@@ -78,5 +78,59 @@ void main()
 			}
 		}
 
-		
+		else{
+Admin:
+		clrscr();
+		cout<<"\n-------------------------------INDIAN__RAILWAYS---------------------------------";
+		cout<<"______________________________(ADMIN LOGIN MENU)________________________________";
+		cout<<"________________________________________________________________________________";
+					cout<<"\n\n1.Create detail data base\n2.Add details\n";
+					cout<<"3.Display details\n4.User management\n";
+					cout<<"5.Display passenger details\n6.Return to main menu\n\n";
+					cout<<"Enter your choice: \n"; cin>>ch;
+					switch(ch){
+						
+							case 1:
+								
+								fout.open("rail.txt",ios::out|ios::binary);
+							
+								do
+								{	clrscr();
+									printf("                                                   designed by:   Mausam Sharma ");
+   									printf("\n");
+   									printf("-------------------------------INDIAN__RAILWAYS---------------------------------");
+   									printf("_______________________________( Admin__Panel )_________________________________");
+									cout<<"\nEnter details of train : ";
+									cout<<"\n________________________________________________________________________________";
+									cout<<"\n\n\t\tTrain Number : \t\t\t";
+									cin>>a.tno;
+									cout<<"\t\tTrain Name : \t\t\t";
+									gets(a.tname);									
+									cout<<"\n\t\tBoarding station : \t\t";
+									gets(a.bp);
+									cout<<"\t\tDestination station: \t\t";
+									gets(a.dest);
+									cout<<"\n\t\tArrival time : \t\t\t";
+									gets(a.arrival);
+									cout<<"\t\tReaching time : \t\t";
+									gets(a.depart);
+									cout<<"\t\tFare per seat : \t\t";
+									cin>>a.c1fare;
+									cout<<"________________________________________________________________________________";
+									fout.write((char*)&a,sizeof(a));
+									cout<<"\nDo you want to add one more record?\n";
+									cout<<"y-for Yes\nn-for No\n";
+									cin>>choice;
+							
+								}while(choice=='y'||choice=='Y');
+							
+								fout.close();
+								break;
+
+							case 2:
+								
+		}
+
+	
 	}
+}
