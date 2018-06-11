@@ -128,9 +128,41 @@ Admin:
 								break;
 
 							case 2:
+								clrscr();
 								
+								fout.open("rail.txt",ios::out|ios::app|ios::binary);
+
+									printf("                                                   designed by:   Mausam Sharma ");
+   									printf("\n");
+   									printf("-------------------------------INDIAN__RAILWAYS---------------------------------");
+   									printf("_______________________________( Admin__Panel )_________________________________");
+									cout<<"\nEnter details of train : ";
+									cout<<"\n________________________________________________________________________________";
+									cout<<"\n\n\t\tTrain Number : \t\t\t";
+									cin>>a.tno;
+									cout<<"\t\tTrain Name : \t\t\t";
+									gets(a.tname);									
+									cout<<"\n\t\tBoarding station : \t\t";
+									gets(a.bp);
+									cout<<"\t\tDestination station: \t\t";
+									gets(a.dest);
+									cout<<"\n\t\tArrival time : \t\t\t";
+									gets(a.arrival);
+									cout<<"\t\tReaching time : \t\t";
+									gets(a.depart);
+									
+									cout<<"\t\tFare per seat : \t\t";
+									cin>>a.c1fare;
+									cout<<"________________________________________________________________________________";
+									fout.write((char*)&a,sizeof(a));
+									cout<<"\n Records saved for this train !!!"; getch();
+								fout.close();
+								break;
+
+							
+					goto Admin;
+
 		}
 
 	
 	}
-}
