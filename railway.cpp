@@ -159,7 +159,50 @@ Admin:
 								fout.close();
 								break;
 
-							
+							case 3:
+								clrscr();
+								
+		
+								fin.open("rail.txt",ios::in|ios::binary);
+								fin.seekg(0); int count=0;
+								while(fin.read((char*)&a,sizeof(a)))
+									{	clrscr();
+										printf("-------------------------------INDIAN__RAILWAYS---------------------------------");
+   										printf("_______________________________( Admin__Panel )_________________________________");
+										printf("\n_______________________________ Train_Database _________________________________");
+										
+										cout<<"\n\t\tTrain number : \t\t\t"<<a.tno;
+										cout<<"\n\t\tTrain name : \t\t\t"<<a.tname;
+										
+										cout<<"\n\n\t\tBoarding point : \t\t"<<a.bp;
+										cout<<"\n\t\tDestination point : \t\t"<<a.dest;
+										
+										cout<<"\n\n\t\tStart time of journey: \t\t"<<a.arrival;
+										cout<<"\n\t\tEnd time of journey : \t\t"<<a.depart;
+										
+										
+										cout<<"\n\n\t\tFare of seat: \t\t\t"<<a.c1fare;
+										
+										cout<<"\n\n_______________________________Record Number "<<++count<<"_________________________________";
+										cout<<"\n\nDo you want to see more records?\n";
+										cout<<"y-for Yes\nn-for No\n";
+										cin>>choice;
+										if(choice=='n'||choice=='N')
+										 {break;}
+										
+									}
+								fin.close();
+								getch();
+								break;
+
+							case 4: manage(); break;
+
+							case 5: displaypassdetail();	break;
+
+							case 6: return 0;
+							default: 
+								cout<<"\n wrong choice !!!\t Enter again";
+					}
 					goto Admin;
 
 		}
