@@ -46,6 +46,55 @@ void main()
 		getch();
 	}
 
+	void manage(){
+		int ch;
+		ifstream fin;
+		ofstream fout;
+		char choice;
+		login b;
+	aloo:
+		clrscr();
+		cout<<"\n-------------------------------INDIAN__RAILWAYS---------------------------------";
+		cout<<"___________________________( User Management Menu )_____________________________";
+		cout<<"________________________________________________________________________________";
+			cout<<"\n\n1.Create UserID Database\n2.Add a user\n";
+			cout<<"3.Display details\n4.Return to Admin Login menu\n";
+			cout<<"\nEnter your choice: "; cin>>ch; 
+			switch(ch){
+				case 1:	
+						fout.open("id.txt",ios::out|ios::binary);
+						do{
+						clrscr();
+						printf("                                                   designed by:   Mausam Sharma ");
+   						printf("\n");
+   						printf("-------------------------------INDIAN__RAILWAYS---------------------------------");
+   						cout<<"___________________________( User Management Menu )_____________________________";
+						cout<<"________________________________________________________________________________";
+						cout<<"\n\n\n\tEnter the ID for new user: \t\t";
+						gets(b.id);
+						cout<<"\n\tEnter password for this user: \t\t";
+						gets(b.password);
+						fout.write((char *) & b,sizeof(b));
+						cout<<"________________________________________________________________________________";
+						cout<<"\n\nDo you want to add one more user?\n";
+						cout<<"y-for Yes\nn-for No\n";
+						cin>>choice;
+						}while(choice=='y'||choice=='Y');
+
+						fout.close();
+						goto aloo;
+
+				
+				default : cout<<"\n wrong choice opted !!! 		 Choose again "; goto aloo;
+
+
+
+			}
+
+
+	}
+
+
 
 	int database(){
 		char password[20]="1234";
