@@ -84,6 +84,26 @@ void main()
 						fout.close();
 						goto aloo;
 
+				case 2:
+						fout.open("id.txt",ios::out|ios::binary|ios::app);
+						clrscr();
+						printf("                                                   designed by:   Mausam Sharma ");
+   						printf("\n");
+   						printf("-------------------------------INDIAN__RAILWAYS---------------------------------");
+   						cout<<"___________________________( User Management Menu )_____________________________";
+						cout<<"________________________________________________________________________________";
+						cout<<"\n\n\n\tEnter the ID for new user: \t\t";
+						gets(b.id);
+						cout<<"\n\tEnter password for this user: \t\t";
+						gets(b.password);
+						fout.write((char *) & b,sizeof(b));
+						cout<<"________________________________________________________________________________";
+						cout<<"\n record for the user saved \n";
+
+						getch();
+						fout.close();
+						goto aloo;
+
 				
 				default : cout<<"\n wrong choice opted !!! 		 Choose again "; goto aloo;
 
