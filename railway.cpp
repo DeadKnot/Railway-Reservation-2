@@ -104,7 +104,29 @@ void main()
 						fout.close();
 						goto aloo;
 
-				
+				case 3:
+						fin.open("id.txt",ios::in|ios::binary);
+						fin.seekg(0); int count=0;
+						while(fin.read((char *) & b,sizeof(b)))
+							{
+								clrscr();
+								printf("                                                   designed by:   Mausam Sharma ");
+   								printf("\n");
+   								printf("-------------------------------INDIAN__RAILWAYS---------------------------------");
+   								cout<<"___________________________( User Management Menu )_____________________________";
+								cout<<"________________________________________________________________________________";
+								cout<<"\n\n\n\t\tUser ID : \t\t"; puts(b.id);
+								cout<<"\n\t\tPassword : \t\t"; puts(b.password);
+								
+								cout<<"\n\n_______________________________Record Number "<<++count<<"_________________________________";
+								cout<<"\n\nDo you want to see more records?\n";
+								cout<<"y-for Yes\nn-for No\n";
+								cin>>choice;
+								if(choice=='n'||choice=='N')
+									{goto aloo;}
+							}
+						fin.close();
+
 				default : cout<<"\n wrong choice opted !!! 		 Choose again "; goto aloo;
 
 
