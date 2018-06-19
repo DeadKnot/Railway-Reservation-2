@@ -46,6 +46,52 @@ void main()
 		getch();
 	}
 
+
+    int user(){
+		login b;
+		int ch,flag=0;
+		ifstream fin;
+		fin.open("id.txt",ios::in|ios::binary);
+		
+		char pass[30];
+		char iden[20];
+
+		userlog:
+		fin.seekg(0);
+		clrscr();
+		cout<<"\n-------------------------------INDIAN_RAILWAYS----------------------------------";
+		cout<<"_________________________________(User LOGIN)___________________________________";
+		cout<<"\n\n \tEnter your Id : \t"; gets(iden);
+		cout<<"\n\tEnter password : \t"; gets(pass);
+		while(fin.read((char *) & b,sizeof(b))){
+
+			if((strcmp(b.id,iden)==0)&&(strcmp(b.password,pass)==0)){
+				
+				couch:
+
+				clrscr(); flag=0;
+				printf("                                                   designed by:   Mausam Sharma ");
+   				printf("\n");
+   				cout<<"\n-------------------------------INDIAN__RAILWAYS---------------------------------";
+				cout<<"_______________________________(USER LOGIN MENU)________________________________";
+				cout<<"________________________________________________________________________________";
+				cout<<"\n\n1.Reserve tickets\n2.Cancel tickets\n3.Enquiry\n4.Get ticket details\n5.Return to the main menu\n\n";
+				cout<<"Enter your choice: ";
+				cin>>ch;
+				switch(ch){
+
+				}
+
+
+			}
+
+			
+		}
+
+		
+		fin.close();
+	}
+
 	void manage(){
 		int ch;
 		ifstream fin;
