@@ -79,6 +79,13 @@ void main()
 				cout<<"Enter your choice: ";
 				cin>>ch;
 				switch(ch){
+					case 1: reserve(); goto couch;
+					case 2: can(); goto couch;
+					case 3: enquiry(); goto couch;
+					case 4: displaypassdetail(); goto couch;
+					case 5: return 0;
+					default: cout<<"\n wrong choice entered !!!   Enter again "; getch(); goto couch;
+
 
 				}
 
