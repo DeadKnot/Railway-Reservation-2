@@ -91,10 +91,29 @@ void main()
 
 
 			}
+			
+			else{
+				
+				flag=1;
+			}
 
 			
 		}
+if(flag){
+			cout<<"\n Enter correct UserID and password !!!"; 
 
+				B:
+				cout<<"\n____________________________________";
+				cout<<"\n\n Enter your choice : \n\n";
+				cout<<"1: Try again\t2: Go to home page";
+				cin>>ch;
+				switch(ch)
+				{
+					case 1: goto userlog; 
+					case 2: return 0;
+					default: cout<<"\n wrong choice"; goto B;
+				}
+		}
 		
 		fin.close();
 	}
