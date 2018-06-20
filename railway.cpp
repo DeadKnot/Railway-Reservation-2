@@ -46,8 +46,88 @@ void main()
 		getch();
 	}
 
+ void reserve(){
 
-    int user(){
+		int ch,i,flag=0;
+		
+		tinfo a;
+		reser b;
+		fstream f1,f2;
+		f1.open("rail.txt",ios::in|ios::out|ios::binary);
+		f2.open("p.txt",ios::in|ios::out|ios::binary|ios::app);
+		f1.seekg(0);
+		f2.seekg(0);
+		A:
+		clrscr();
+		cout<<"\n-------------------------------INDIAN__RAILWAYS---------------------------------";
+		cout<<"___________________________(Reservation main menu)______________________________";
+		cout<<"________________________________________________________________________________";
+		cout<<"\nEnter details for reservation  :	";
+		cout<<"\n\n\t\tTrain number: \t\t";
+		cin>>b.tno;
+		
+		B:
+		cout<<"\t\tNo of seats required: \t";cin>>b.nosr; if(b.nosr>10){cout<<"\n No of seats should be >= 10"; goto B;}
+		cout<<"\n";
+		for(i=0;i<b.nosr;i++){
+			cout<<"\t\tPassenger Name : \t"; gets(b.pname[i]);
+			cout<<"\t\tPassenger Age : \t";	cin>>b.age[i];
+		}
+		cout<<"\n\t\tDate of journey : \t";
+		gets(b.date);
+
+		while(f1.read((char *) &a,sizeof(a))){
+
+			if(a.tno==b.tno){
+
+					randomize();
+					b.pnr=random(10000);
+					strcpy(b.tname,a.tname);
+					strcpy(b.bp,a.bp);
+					strcpy(b.dest,a.dest);
+					f2.write((char *) & b,sizeof(b));
+					cout<<"\n\n\t\t--------------Your ticket is reserved-----------\n";
+					getch();
+					clrscr();
+					cout<<"\n-------------------------------INDIAN__RAILWAYS---------------------------------";
+					cout<<"___________________________(Reservation main menu)______________________________";
+					cout<<"Ticket details  :	________________________________________________________";
+					cout<<"\n\n\t\tTrain No: \t\t"<<b.tno; cout<<"\n\t\tPNR number: \t\t"<<b.pnr;
+					cout<<"\n\t\tDate :  \t\t"<<b.date<<"\n\t\tTrain name: \t\t"<<b.tname;
+					cout<<"\n\t\tBoarding station: \t"<<b.bp<<"\n\t\tDestination: \t\t"<<b.dest;
+					
+					cout<<"\n\nPassengers : ";
+					for(i=0;i<b.nosr;i++){
+						cout<<"\n\t\tAge: "<<b.age[i]<<"\t\tName: "<<b.pname[i];
+					}
+
+					cout<<"\n________________________________________________________________________________";getch(); flag=1; break;
+
+
+
+
+			}
+			else{
+				flag=0;
+			}
+
+
+
+		}
+
+		if(flag==0){
+			cout<<"\n\n\t\tWrong train number entered: \n\t\tTicket not reserved: "; getch();
+		}
+		f1.close();
+		f2.close();
+
+		getch();
+	}
+
+
+
+
+  int user(){
 		login b;
 		int ch,flag=0;
 		ifstream fin;
@@ -79,6 +159,7 @@ void main()
 				cout<<"Enter your choice: ";
 				cin>>ch;
 				switch(ch){
+
 					case 1: reserve(); goto couch;
 					case 2: can(); goto couch;
 					case 3: enquiry(); goto couch;
@@ -86,20 +167,19 @@ void main()
 					case 5: return 0;
 					default: cout<<"\n wrong choice entered !!!   Enter again "; getch(); goto couch;
 
-
 				}
 
 
 			}
-			
+
 			else{
 				
 				flag=1;
 			}
 
-			
 		}
-if(flag){
+
+		if(flag){
 			cout<<"\n Enter correct UserID and password !!!"; 
 
 				B:
@@ -114,7 +194,6 @@ if(flag){
 					default: cout<<"\n wrong choice"; goto B;
 				}
 		}
-		
 		fin.close();
 	}
 
