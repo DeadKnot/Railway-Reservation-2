@@ -46,6 +46,44 @@ void main()
 		getch();
 	}
 
+	void displaypassdetail()
+			{
+				fstream f;
+				reser b;
+				f.open("p.txt",ios::in|ios::out|ios::binary);
+				f.seekg(0); int i,count=0; char choice;
+				
+				while(f.read((char *) & b,sizeof(b)))
+					{clrscr();
+					cout<<"\n-------------------------------INDIAN__RAILWAYS---------------------------------";
+					cout<<"___________________________(Passenger detail menu)______________________________";
+					cout<<"________________________________________________________________________________";
+					cout<<"\nTrain Details :";
+					cout<<"\n\n\t\tTrain No: \t\t"<<b.tno; cout<<"\n\t\tPNR number: \t\t"<<b.pnr;
+					cout<<"\n\t\tDate :  \t\t"<<b.date<<"\n\t\tTrain name: \t\t"<<b.tname;
+					cout<<"\n\t\tBoarding station: \t"<<b.bp<<"\n\t\tDestination: \t\t"<<b.dest;
+					
+					cout<<"\n\nPassengers : ";
+					for(i=0;i<b.nosr;i++){
+						cout<<"\n\t\tAge: "<<b.age[i]<<"\t\tName: "<<b.pname[i];
+					}
+					
+					cout<<"\n\n_______________________________Record Number "<<++count<<"_________________________________";
+					getch();
+					cout<<"\n\nDo you want to see more records?\n";
+					cout<<"y-for Yes\nn-for No\n";
+					cin>>choice;
+					if(choice=='n'||choice=='N')
+						{break;}
+
+
+
+					}
+				
+				f.close();
+				getch();
+			}
+
  void reserve(){
 
 		int ch,i,flag=0;
