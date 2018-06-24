@@ -46,6 +46,34 @@ void main()
 		getch();
 	}
 
+	
+	void can(){
+		int ch;
+				
+		A:		
+		clrscr();
+		cout<<"\n-------------------------------INDIAN__RAILWAYS---------------------------------";
+		cout<<"___________________________(Cancellation main menu)_____________________________";
+		cout<<"\n\t\t1.Cancel\n\t\t2.Return to the User Login Menu\n";
+		cout<<"\nEnter your choice:";
+		cin>>ch;
+		
+
+		switch(ch)
+			{
+				case 1:
+					cancell();
+					break;
+
+				case 2: break;
+				default: cout<<"\n\t\t\t\tWrong choice "; getch(); goto A;
+					}
+				
+
+				getch();
+
+	}
+
 	void enquiry(){
 
 				ifstream fin; char choice;
