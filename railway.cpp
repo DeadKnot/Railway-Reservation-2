@@ -46,6 +46,71 @@ void main()
 		getch();
 	}
 
+void cancell(){
+		
+		reser b,c;
+		int ret,pnri,flag=0;
+		ifstream f2;
+		ofstream f3;
+		potato:
+		f2.open("p.txt",ios::in|ios::binary);
+		f3.open("temp.txt",ios::out|ios::binary|ios::trunc);
+		clrscr();
+		cout<<"\n-------------------------------INDIAN__RAILWAYS---------------------------------";
+		cout<<"_____________________________(Cancellation menu)________________________________";
+		cout<<"\n\nEnter PNR number: ";
+		cin>>pnri;
+		
+
+		while(f2.read((char *) & b,sizeof(b))){
+			if(b.pnr!=pnri){
+				c.tno=b.tno;
+				c.pnr=b.pnr;
+				c.nosr=b.nosr;
+				strcpy(c.bp,b.bp);
+				strcpy(c.dest,b.dest);
+				strcpy(c.tname,b.tname);
+				for(int j=0;j<c.nosr;j++){
+					strcpy(c.pname[j],b.pname[j]);
+					c.age[j] = b.age[j];
+				}
+
+				
+				strcpy(c.date,b.date);
+
+				
+				
+
+				f3.write((char *) &c,sizeof(c));
+				
+
+				}
+			else{
+				 flag=1;
+				
+
+
+			}
+
+
+
+			}
+			
+			
+			f2.close();
+			f3.close();
+
+			
+
+			ret = remove("p.txt");
+			ret = rename("temp.txt","p.txt");
+
+			
+			if(flag==1){cout<<"\n\t\t\t\t Ticket cancelled ";}
+			else{cout<<"\n\t\t\t \tWrong PNR entered : "; getch();}
+
+	}
+
 	
 	void can(){
 		int ch;
