@@ -8,6 +8,41 @@
 #include<fstream.h>
 
 
+struct tinfo{
+	
+	int tno;
+	char tname[50];
+	char bp[50];
+	char dest[50];
+	char arrival[50];
+	char depart[50];
+	int c1fare;
+};
+
+struct login{
+	char id[20];
+	char password[30];
+};
+
+struct reser{
+	int tno;
+	int pnr;
+	int nosr;
+	char bp[50];
+	char dest[50];
+	char tname[50];
+	char pname[10][50];
+	int age[10];
+	char date[50];
+
+
+};
+
+
+
+int database();
+int user();
+
 
 
 void main()
@@ -33,8 +68,8 @@ void main()
 
 			switch(cho)
 				{
-					case 1:			//ret = database(); if(ret==0){goto start;} break;
-					case 2:			//ret = user(); if(ret==0){goto start;} break;
+					case 1:			ret = database(); if(ret==0){goto start;} break;
+					case 2:			ret = user(); if(ret==0){goto start;} break;
 					case 3:			exit(0);
 					default:		cout<<"\n wrong choice"; getch(); goto start;
 
