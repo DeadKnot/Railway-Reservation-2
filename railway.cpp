@@ -47,7 +47,28 @@ int user();
 
 void main()
 	{
-		
+		int gd,gm;
+int i;
+int maxx,midy,mxt;
+int z,ch;
+clrscr();
+// initialize graphic mode
+detectgraph(&gd,&gm);
+initgraph(&gd,&gm,"C:\\TurboC3\\BGI");
+//max pixel in horizontal direction
+
+maxx=getmaxx();
+mxt=maxx-300;
+
+// mid pixel in vertical direction
+
+midy=getmaxy()/2;
+
+A:
+{
+for(i=0;i<maxx;i=i+9)
+{ // clears the screen
+	}	
 		start:
 		
 
