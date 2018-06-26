@@ -5,8 +5,10 @@
 #include<iostream.h>
 #include<time.h>
 #include<iomanip.h>
+#include<graphics.h>
+#include<process.h>
+#include<dos.h>
 #include<fstream.h>
-
 
 struct tinfo{
 	
@@ -44,10 +46,9 @@ int database();
 int user();
 
 
-
 void main()
-	{
-		int gd,gm;
+{   
+int gd,gm;
 int i;
 int maxx,midy,mxt;
 int z,ch;
@@ -68,7 +69,193 @@ A:
 {
 for(i=0;i<maxx;i=i+9)
 { // clears the screen
-	}	
+cleardevice();
+ if(kbhit())
+ { break;}
+//______________________________text on the main screen
+setcolor(GREEN);
+settextstyle(TRIPLEX_FONT,HORIZ_DIR,4);
+outtextxy(0,20,"____________Indian Railways_____________") ;
+//________________________________________________________________
+setcolor(YELLOW);
+settextstyle(3,HORIZ_DIR,4);
+outtextxy(mxt-i,100," PRESS ENTER ");
+//________________________________________________________________
+setcolor(WHITE);
+settextstyle(3,HORIZ_DIR,2);
+outtextxy(mxt-i,midy+135,"made by MAUSAM SHARMA");
+
+
+
+  // makes a road
+setcolor(5);
+  line(0,midy+120,maxx,midy+120);
+// draw a train
+setcolor(YELLOW);
+setfillstyle(SOLID_FILL,RED);
+//train tyres specially designed by Mausam Sharma
+ circle(i+25,midy+95,25);
+ circle(i+25,midy+95,20);
+ circle(i+80,midy+95,25);
+ circle(i+80,midy+95,20);
+ circle(i+127,midy+103,17);
+ circle(i+127,midy+103,12);
+ circle(i+166,midy+103,17);
+ circle(i+166,midy+103,12);
+//___________________________additional circles in tyres
+circle(i+25,midy+95,3);
+circle(i+80,midy+95,3);
+circle(i+127,midy+103,2);
+circle(i+166,midy+104,2);
+// train body arcs
+setcolor(RED);
+arc(i+25,midy+87,0,160,27);
+arc(i+80,midy+87,-10,180,27);
+arc(i+127,midy+95,0,170,19);
+arc(i+166,midy+95,0,180,19);
+//train frame designed by Mausam Sharma
+//tyres to above window
+line(i+0,midy+75,i+0,midy+35);
+line(i+0,midy+35,i+10,midy+35);
+line(i+10,midy+35,i+10,midy-10);
+line(i+10,midy-10,i+0,midy-10);
+//______________________________ above window design
+line(i+0,midy-10,i+10,midy-20);
+line(i+10,midy-20,i+80,midy-20);
+line(i+80,midy-20,i+90,midy-10);
+line(i+90,midy-10,i+80,midy-10);
+//______________________________  horizontal infront of window
+line(i+80,midy-10,i+80,midy+35);
+line(i+80,midy+35,i+190,midy+35);
+//______________________________  front arc
+arc(i+190,midy+60,270,90,25);
+line(i+190,midy+85,i+230,midy+110);
+line(i+230,midy+110,i+186,midy+110);
+line(i+187,midy+110,i+186,midy+85);
+line(i+186,midy+85,i+190,midy+85);
+//____________________________________window
+line(i+20,midy+35,i+70,midy+35);
+line(i+70,midy+35,i+70,midy-10);
+line(i+70,midy-10,i+20,midy-10);
+line(i+20,midy-10,i+20,midy+35);
+line(i+10,midy+35,i+80,midy+35);
+line(i+10,midy-10,i+80,midy-10);
+//__________________________________ chimney
+arc(i+190,midy+35,120,180,15);
+arc(i+130,midy+35,0,60,15);
+line(i+137,midy+22,i+183,midy+22);
+arc(i+130,midy+8,300,0,15);
+arc(i+190,midy+8,180,240,15);
+line(i+145,midy+8,i+175,midy+8);
+line(i+145,midy+8,i+140,midy+3);
+line(i+140,midy+3,i+180,midy+3);
+line(i+180,midy+3,i+175,midy+8);
+//__________________________________lighting
+line(i+190,midy+35,i+190,midy+25);
+line(i+190,midy+25,i+195,midy+25);
+line(i+195,midy+25,i+195,midy+36);
+arc(i+195,midy+25,270,180,6);
+arc(i+100,midy+35,0,180,8);
+arc(i+120,midy+35,0,180,8);
+//_________________________________designing
+line(i+0,midy+45,i+120,midy+45);
+line(i+0,midy+50,i+120,midy+50);
+
+line(i+120,midy+35,i+120,midy+78);
+line(i+140,midy+35,i+140,midy+80);
+
+line(i+150,midy+35,i+150,midy+83);
+line(i+170,midy+35,i+170,midy+77);
+//_________________________smoke clouds_____________________
+setcolor(WHITE);
+ellipse(30-i,130-i,40,260,10,15);
+ellipse(55-i,120-i,365,175,20,15);
+ellipse(92-i,127-i,340,170,20,25);
+ellipse(98-i,146-i,220,70,20,15);
+ellipse(56-i,151-i,145,355,30,15);
+
+ellipse(125-i,190-i,40,285,5,10);
+ellipse(140-i,183-i,365,175,12,7);
+ellipse(162-i,187-i,340,170,10,15);
+ellipse(167-i,196-i,220,70,10,12);
+ellipse(145-i,205-i,145,355,22,8);
+
+if(i>=90){ if(i==90){z=i;}
+ellipse(z+125-i,z+190-i,40,285,5,10);
+ellipse(z+140-i,z+183-i,365,175,12,7);
+ellipse(z+162-i,z+187-i,340,170,10,15);
+ellipse(z+167-i,z+196-i,220,70,10,12);
+ellipse(z+145-i,z+205-i,145,355,22,8);  }
+
+
+//____________________________________coloring
+setcolor(YELLOW);
+setfillstyle(SOLID_FILL,YELLOW);
+floodfill(i+2,midy+95,YELLOW);
+floodfill(i+102,midy+95,YELLOW);
+floodfill(i+142,midy+103,YELLOW);
+floodfill(i+181,midy+103,YELLOW);
+
+
+setfillstyle(SOLID_FILL,BLUE);
+floodfill(i+25,midy+95,YELLOW);
+floodfill(i+80,midy+95,YELLOW);
+floodfill(i+127,midy+103,YELLOW);
+floodfill(i+166,midy+103,YELLOW);
+//____________tyres done___________________________
+setcolor(RED);
+setfillstyle(SOLID_FILL,LIGHTRED);
+floodfill(i+18,midy+30,RED);
+floodfill(i+75,midy+30,RED);
+setfillstyle(XHATCH_FILL,LIGHTBLUE);
+floodfill(i+22,midy+30,RED);
+//_____________________inner tyres_________________
+setcolor(YELLOW);
+setfillstyle(WIDE_DOT_FILL,BROWN);
+floodfill(i+7,midy+95,YELLOW);
+floodfill(i+62,midy+95,YELLOW);
+floodfill(i+137,midy+103,YELLOW);
+floodfill(i+156,midy+103,YELLOW);
+//________________________engine below the chimney_____________
+setcolor(RED);
+setfillstyle(SOLID_FILL,GREEN);
+
+floodfill(i+122,midy+57,RED);
+floodfill(i+162,midy+57,RED);
+
+setfillstyle(SOLID_FILL,BLUE);
+floodfill(i+206,midy+103,RED);
+floodfill(i+110,midy+47,RED);
+floodfill(i+162,midy+7,RED);
+
+setfillstyle(SOLID_FILL,LIGHTBLUE);
+floodfill(i+162,midy+12,RED);
+floodfill(i+162,midy+32,RED);
+
+setfillstyle(SOLID_FILL,RED);
+floodfill(i+110,midy+37,RED);
+floodfill(i+145,midy+37,RED);
+floodfill(i+185,midy+37,RED);
+floodfill(i+110,midy+57,RED);
+floodfill(i+145,midy+57,RED);
+floodfill(i+60,midy-15,RED);
+
+setfillstyle(SOLID_FILL,LIGHTRED);
+floodfill(i+192,midy+32,RED);
+
+setcolor(RED);
+setfillstyle(SOLID_FILL,YELLOW);
+floodfill(i+195,midy+23,RED);
+floodfill(i+100,midy+32,RED);
+floodfill(i+120,midy+32,RED); delay(300); }
+//_______________text indian railways___________________
+}
+
+closegraph();
+
+
+
+
 		start:
 		
 
@@ -102,7 +289,8 @@ for(i=0;i<maxx;i=i+9)
 		getch();
 	}
 
-void cancell(){
+
+	void cancell(){
 		
 		reser b,c;
 		int ret,pnri,flag=0;
@@ -168,6 +356,7 @@ void cancell(){
 	}
 
 	
+
 	void can(){
 		int ch;
 				
@@ -269,7 +458,7 @@ void cancell(){
 				getch();
 			}
 
- void reserve(){
+	void reserve(){
 
 		int ch,i,flag=0;
 		
@@ -347,10 +536,7 @@ void cancell(){
 		getch();
 	}
 
-
-
-
-  int user(){
+	int user(){
 		login b;
 		int ch,flag=0;
 		ifstream fin;
@@ -500,6 +686,9 @@ void cancell(){
 									{goto aloo;}
 							}
 						fin.close();
+						goto aloo;
+
+				case 4:	break;
 
 				default : cout<<"\n wrong choice opted !!! 		 Choose again "; goto aloo;
 
@@ -509,8 +698,6 @@ void cancell(){
 
 
 	}
-
-
 
 	int database(){
 		char password[20]="1234";
